@@ -1,6 +1,6 @@
 import React from "react";
 import { useRoute, Link } from "wouter";
-import { ArrowLeft, Clock, MessageSquare, ArrowRight } from "lucide-react";
+import { Clock, MessageSquare, ArrowRight, Plane, Headset, ShieldCheck, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Article() {
@@ -40,21 +40,21 @@ export default function Article() {
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-white font-sans overflow-x-hidden">
-      {/* Header copied from Home concept (simplified version of Figma header but consistent) */}
-      <header className="w-full border-b border-[#D5D5D7] px-6 py-4 flex justify-center items-center bg-white sticky top-0 z-50">
+      {/* Header - Matching Home design */}
+      <header className="w-full border-b border-[#D5D5D7] px-6 py-4 flex justify-center items-center bg-white sticky top-0 z-50 h-[84px]">
         <div className="max-w-[1280px] w-full flex items-center justify-between">
-          <div className="flex items-center gap-8">
+          <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <img src="/figmaAssets/social--media-linkedin.svg" alt="Logo" className="h-6 w-auto grayscale brightness-0" />
+              <img src="/figmaAssets/social--media-linkedin.svg" alt="Logo Ciclic" className="h-6 w-auto grayscale brightness-0" />
               <div className="ml-4 h-6 w-px bg-[#D5D5D7]" />
               <span className="ml-4 font-bold text-[#373739] font-['Oscine'] text-lg">Blog</span>
             </Link>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="outline" className="border-[#D5D5D7] text-[#373739] font-bold rounded-lg hidden md:flex">
+            <Button variant="outline" className="border-[#D5D5D7] text-[#373739] font-bold rounded-lg h-11 px-6 hidden md:flex">
               Assinar newsletter
             </Button>
-            <Button className="bg-[#535355] hover:bg-[#373739] text-white font-bold rounded-lg px-6">
+            <Button className="bg-[#535355] hover:bg-[#373739] text-white font-bold rounded-lg h-11 px-6">
               Quero ser cliente
             </Button>
           </div>
@@ -145,14 +145,44 @@ export default function Article() {
             </ul>
           </div>
 
-          {/* Newsletter Box (adapted from home design) */}
-          <section className="w-full">
-            <img
-              className="w-full h-auto rounded-2xl shadow-sm"
-              alt="Newsletter"
-              src="/figmaAssets/newsletter.svg"
-            />
-          </section>
+          {/* Newsletter Box - Matching Figma visual layout exactly */}
+          <div className="bg-[#F5F7FA] p-8 rounded-[16px] flex flex-col gap-8">
+            <div className="space-y-2">
+              <h3 className="text-[#373739] text-[32px] font-bold font-['Oscine'] leading-[40px]">
+                Assine a <span className="bg-[#62E641] px-1 rounded-sm">newsletter</span> e receba conteudos exclusivos.
+              </h3>
+            </div>
+            
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3 text-[#535355] font-semibold text-base">
+                <MessageSquare className="w-6 h-6 opacity-60" />
+                <span>Artigos e notícias</span>
+              </div>
+              <div className="flex items-center gap-3 text-[#535355] font-semibold text-base">
+                <ShieldCheck className="w-6 h-6 opacity-60" />
+                <span>Promoções</span>
+              </div>
+              <div className="flex items-center gap-3 text-[#535355] font-semibold text-base">
+                <HeartPulse className="w-6 h-6 opacity-60" />
+                <span>Novidades sobre os produtos</span>
+              </div>
+            </div>
+
+            <div className="relative flex items-center mt-2">
+              <input 
+                type="email" 
+                placeholder="Digite seu email" 
+                className="w-full h-14 bg-white border border-[#E8E8E8] rounded-full pl-6 pr-14 focus:outline-none focus:ring-2 focus:ring-[#72F951] text-[#B6B6B9] text-base"
+              />
+              <button className="absolute right-2 w-10 h-10 bg-[#72F951] rounded-full flex items-center justify-center hover:bg-[#62E641] transition-colors shadow-sm">
+                <ArrowRight className="w-5 h-5 text-[#373739]" />
+              </button>
+            </div>
+
+            <div className="flex justify-center pt-2">
+              <img src="/figmaAssets/newsletter.svg" alt="Newsletter Illustration" className="w-[328px] h-auto" />
+            </div>
+          </div>
         </aside>
       </main>
 
@@ -183,41 +213,48 @@ export default function Article() {
         </div>
       </section>
 
-      {/* Product Banner */}
+      {/* Universo Viagem Banner - Redesigned to match Figma exactly */}
       <section className="w-full bg-[#DAF7F5] px-6 py-16 flex justify-center">
-        <div className="max-w-[1050px] w-full bg-[#373739] rounded-xl overflow-hidden flex flex-col md:flex-row items-center">
-          <div className="flex-1 p-12 space-y-8">
+        <div className="max-w-[1050px] w-full bg-[#373739] rounded-xl overflow-hidden flex flex-col md:flex-row items-stretch">
+          <div className="flex-1 p-12 space-y-10 flex flex-col justify-center">
             <div className="space-y-4">
-              <div className="flex items-center gap-3 text-white tracking-widest font-semibold uppercase text-base">
-                <img src="https://www.figma.com/api/mcp/asset/9c6c14d9-f741-408a-b234-833fe9ab1772" alt="Icon" className="w-6 h-6 invert" />
+              <div className="flex items-center gap-3 text-[#00D6C3] tracking-[1px] font-bold uppercase text-base">
+                <Plane className="w-5 h-5 rotate-45" />
                 <span>Universo Viagem</span>
               </div>
-              <h2 className="text-white text-4xl font-bold font-['Oscine'] leading-tight">
+              <h2 className="text-white text-[32px] font-bold font-['Oscine'] leading-[40px]">
                 Você protegido nos momentos mais importantes da sua viagem
               </h2>
             </div>
             
-            <ul className="space-y-3 text-white/90 font-semibold text-base">
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#72F951]" />
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 text-white font-semibold text-base">
+                <div className="bg-[#373739] border border-white/20 p-1 rounded-md">
+                   <Clock className="w-4 h-4 text-[#00D6C3]" />
+                </div>
                 Atraso de voo e bagagem
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#72F951]" />
+              </div>
+              <div className="flex items-center gap-3 text-white font-semibold text-base">
+                <div className="bg-[#373739] border border-white/20 p-1 rounded-md">
+                   <Headset className="w-4 h-4 text-[#00D6C3]" />
+                </div>
                 Atendimento 24 Horas (em português)
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="w-2 h-2 rounded-full bg-[#72F951]" />
+              </div>
+              <div className="flex items-center gap-3 text-white font-semibold text-base">
+                <div className="bg-[#373739] border border-white/20 p-1 rounded-md">
+                   <ShieldCheck className="w-4 h-4 text-[#00D6C3]" />
+                </div>
                 Despesas médicas, hospitalares e muito mais
-              </li>
-            </ul>
+              </div>
+            </div>
 
-            <Button className="bg-[#72F951] hover:bg-[#62E641] text-[#373739] font-bold rounded-full px-10 h-12 text-lg">
+            <Button className="bg-[#72F951] hover:bg-[#62E641] text-[#373739] font-bold rounded-full px-12 h-14 text-lg w-fit">
               Conhecer agora
             </Button>
           </div>
-          <div className="flex-1 h-full min-h-[424px] bg-[#373739]">
-             <img src="https://www.figma.com/api/mcp/asset/203a085a-38ae-4a77-a18b-f50c54ce2f0f" alt="Product" className="w-full h-full object-cover opacity-80" />
+          <div className="flex-1 relative min-h-[424px]">
+             <img src="https://www.figma.com/api/mcp/asset/203a085a-38ae-4a77-a18b-f50c54ce2f0f" alt="Product" className="absolute inset-0 w-full h-full object-cover" />
+             <div className="absolute inset-0 bg-[rgba(114,249,81,0.06)] pointer-events-none" />
           </div>
         </div>
       </section>
