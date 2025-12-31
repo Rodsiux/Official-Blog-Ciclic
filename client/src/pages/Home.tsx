@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation } from "wouter";
-import { Newsletter } from "@/components/Newsletter";
 
 const footerSections = [
   {
@@ -93,9 +92,11 @@ export const Home = (): JSX.Element => {
       </section>
 
       <section className="w-full">
-        <div className="max-w-[1280px] mx-auto px-4 py-8">
-          <Newsletter />
-        </div>
+        <img
+          className="w-full h-auto"
+          alt="Newsletter"
+          src="/figmaAssets/newsletter.svg"
+        />
       </section>
 
       <section className="w-full cursor-pointer" onClick={() => setLocation("/article/podcast")}>
