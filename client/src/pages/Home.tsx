@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "wouter";
 
 const footerSections = [
   {
@@ -68,21 +69,25 @@ const socialMedia = [
 ];
 
 export const Home = (): JSX.Element => {
+  const [, setLocation] = useLocation();
+
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-neutral-00">
-      <section className="w-full">
+      <section className="w-full cursor-pointer" onClick={() => setLocation("/article/hero")}>
         <img
           className="w-full h-auto"
           alt="Hero"
           src="/figmaAssets/hero.svg"
+          data-testid="article-hero"
         />
       </section>
 
-      <section className="w-full">
+      <section className="w-full cursor-pointer" onClick={() => setLocation("/article/mais-lidas")}>
         <img
           className="w-full h-auto"
           alt="Mais lidas"
           src="/figmaAssets/mais-lidas.svg"
+          data-testid="article-mais-lidas"
         />
       </section>
 
@@ -94,19 +99,21 @@ export const Home = (): JSX.Element => {
         />
       </section>
 
-      <section className="w-full">
+      <section className="w-full cursor-pointer" onClick={() => setLocation("/article/podcast")}>
         <img
           className="w-full h-auto"
           alt="Podcast"
           src="/figmaAssets/podcast.svg"
+          data-testid="article-podcast"
         />
       </section>
 
-      <section className="w-full">
+      <section className="w-full cursor-pointer" onClick={() => setLocation("/article/universo")}>
         <img
           className="w-full h-auto"
           alt="Universo de seguros"
           src="/figmaAssets/universo-de-seguros.svg"
+          data-testid="article-universo"
         />
       </section>
 
