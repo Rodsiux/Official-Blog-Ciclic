@@ -40,14 +40,14 @@ export default function Article() {
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-white font-sans overflow-x-hidden">
-      {/* Header */}
+      {/* Header copied from Home concept (simplified version of Figma header but consistent) */}
       <header className="w-full border-b border-[#D5D5D7] px-6 py-4 flex justify-center items-center bg-white sticky top-0 z-50">
         <div className="max-w-[1280px] w-full flex items-center justify-between">
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center">
               <img src="/figmaAssets/social--media-linkedin.svg" alt="Logo" className="h-6 w-auto grayscale brightness-0" />
               <div className="ml-4 h-6 w-px bg-[#D5D5D7]" />
-              <span className="ml-4 font-bold text-[#373739] font-['Oscine']">Blog</span>
+              <span className="ml-4 font-bold text-[#373739] font-['Oscine'] text-lg">Blog</span>
             </Link>
           </div>
           <div className="flex items-center gap-4">
@@ -65,7 +65,7 @@ export default function Article() {
       <section className="w-full bg-white pt-14 pb-0 px-6 flex justify-center">
         <div className="max-w-[1280px] w-full relative h-[450px] rounded-2xl overflow-hidden group">
           <img 
-            src="/figmaAssets/hero.svg" 
+            src="https://www.figma.com/api/mcp/asset/619772ef-696c-4b5b-b7fd-6cae33573672" 
             alt="Article Hero" 
             className="absolute inset-0 w-full h-full object-cover"
           />
@@ -115,7 +115,7 @@ export default function Article() {
               </p>
               {idx === 1 && (
                 <div className="w-full h-[205px] bg-[#F5F7FA] rounded-lg overflow-hidden my-8">
-                  <img src="/figmaAssets/hero.svg" alt="Section visual" className="w-full h-full object-cover" />
+                  <img src="https://www.figma.com/api/mcp/asset/94fda3bd-32ea-4530-9f15-1b5ac3c72449" alt="Section visual" className="w-full h-full object-cover" />
                 </div>
               )}
             </div>
@@ -145,39 +145,14 @@ export default function Article() {
             </ul>
           </div>
 
-          {/* Newsletter Box */}
-          <div className="bg-[#F5F7FA] p-6 rounded-2xl space-y-8">
-            <div className="space-y-4">
-              <div className="h-4 w-40 bg-[#62E641] rounded-full" />
-              <h3 className="text-[#373739] text-3xl font-bold font-['Oscine'] leading-tight">
-                Assine a newsletter e receba conteudos exclusivos.
-              </h3>
-            </div>
-            
-            <div className="space-y-4">
-              {[
-                { icon: <MessageSquare className="w-5 h-5" />, text: "Artigos e notícias" },
-                { icon: <MessageSquare className="w-5 h-5" />, text: "Promoções" },
-                { icon: <MessageSquare className="w-5 h-5" />, text: "Novidades sobre os produtos" }
-              ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-3 text-[#535355] font-semibold">
-                  <div className="text-[#535355]">{item.icon}</div>
-                  <span className="text-base">{item.text}</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative flex items-center">
-              <input 
-                type="email" 
-                placeholder="Digite seu email" 
-                className="w-full h-14 bg-white border border-[#E8E8E8] rounded-full px-6 focus:outline-none focus:ring-2 focus:ring-[#72F951] text-[#B6B6B9]"
-              />
-              <button className="absolute right-2 w-10 h-10 bg-[#72F951] rounded-full flex items-center justify-center hover:bg-[#62E641] transition-colors shadow-lg">
-                <ArrowRight className="w-5 h-5 text-[#373739]" />
-              </button>
-            </div>
-          </div>
+          {/* Newsletter Box (adapted from home design) */}
+          <section className="w-full">
+            <img
+              className="w-full h-auto rounded-2xl shadow-sm"
+              alt="Newsletter"
+              src="/figmaAssets/newsletter.svg"
+            />
+          </section>
         </aside>
       </main>
 
@@ -186,13 +161,17 @@ export default function Article() {
         <div className="max-w-[1280px] w-full space-y-8">
           <h2 className="text-[#373739] text-3xl font-bold font-['Oscine']">Posts relacionados</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((post) => (
-              <div key={post} className="relative aspect-[334/366] rounded-2xl overflow-hidden group cursor-pointer">
-                <img src="/figmaAssets/hero.svg" alt="Related post" className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105" />
+            {[
+              { img: "https://www.figma.com/api/mcp/asset/94fda3bd-32ea-4530-9f15-1b5ac3c72449", date: "24 mai 2022" },
+              { img: "https://www.figma.com/api/mcp/asset/619772ef-696c-4b5b-b7fd-6cae33573672", date: "24 mai 2022" },
+              { img: "https://www.figma.com/api/mcp/asset/94fda3bd-32ea-4530-9f15-1b5ac3c72449", date: "24 mai 2022" }
+            ].map((post, idx) => (
+              <div key={idx} className="relative aspect-[334/366] rounded-2xl overflow-hidden group cursor-pointer">
+                <img src={post.img} alt="Related post" className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105" />
                 <div className="absolute inset-0 bg-black/30" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-black/40 backdrop-blur-sm space-y-3">
                   <div className="bg-[#373739] text-[#F5F7FA] text-xs font-bold px-3 py-1 rounded-full w-fit">
-                    24 mai 2022
+                    {post.date}
                   </div>
                   <h3 className="text-white text-xl font-bold font-['Oscine'] leading-tight line-clamp-2">
                     OMS reclassifica gravidade e altera o grupo de variantes do SARS-CoV-2
@@ -210,7 +189,7 @@ export default function Article() {
           <div className="flex-1 p-12 space-y-8">
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-white tracking-widest font-semibold uppercase text-base">
-                <img src="/figmaAssets/social--media-instagram.svg" alt="Icon" className="w-6 h-6 invert" />
+                <img src="https://www.figma.com/api/mcp/asset/9c6c14d9-f741-408a-b234-833fe9ab1772" alt="Icon" className="w-6 h-6 invert" />
                 <span>Universo Viagem</span>
               </div>
               <h2 className="text-white text-4xl font-bold font-['Oscine'] leading-tight">
@@ -238,7 +217,7 @@ export default function Article() {
             </Button>
           </div>
           <div className="flex-1 h-full min-h-[424px] bg-[#373739]">
-             <img src="/figmaAssets/hero.svg" alt="Product" className="w-full h-full object-cover opacity-80" />
+             <img src="https://www.figma.com/api/mcp/asset/203a085a-38ae-4a77-a18b-f50c54ce2f0f" alt="Product" className="w-full h-full object-cover opacity-80" />
           </div>
         </div>
       </section>
