@@ -3,6 +3,7 @@ import { useRoute, Link } from "wouter";
 import { Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Newsletter } from "@/components/Newsletter";
+import { Header } from "@/components/Header";
 
 const imgArticleImage = "https://www.figma.com/api/mcp/asset/7d9994a9-3836-48a3-a9f1-e33596bab9ee";
 const imgArticleImage1 = "https://www.figma.com/api/mcp/asset/f8212dcf-8598-47f5-852c-74b4a8f044bc";
@@ -46,27 +47,7 @@ export default function Article() {
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-white font-sans overflow-x-hidden">
-      {/* Header */}
-      <header className="w-full border-b border-[#D5D5D7] px-[115px] py-[20px] flex justify-center items-center bg-white sticky top-0 z-50">
-        <div className="max-w-[1280px] w-full flex items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <img src={imgLogoCiclic} alt="Logo Ciclic" className="h-[25px] w-auto" />
-              <div className="ml-[20px] h-[24px] w-px bg-[#D5D5D7]" />
-              <span className="ml-[20px] font-bold text-[#373739] font-['Oscine'] text-[15px]">Blog</span>
-            </Link>
-          </div>
-          <div className="flex items-center gap-[24px]">
-            <Button variant="outline" className="border-[#D5D5D7] border-solid text-[#373739] font-bold rounded-[8px] h-[44px] px-[16px]">
-              Assinar newsletter
-            </Button>
-            <Button className="bg-[#535355] hover:bg-[#373739] text-white font-bold rounded-[8px] h-[44px] px-[16px]">
-              Quero ser cliente
-            </Button>
-          </div>
-        </div>
-      </header>
-
+      <Header />
       {/* Hero Section */}
       <section className="w-full bg-white pt-[56px] pb-0 px-[56px] flex justify-center h-[450px]">
         <div className="max-w-[1280px] w-full relative h-full rounded-[16px] overflow-hidden group">
