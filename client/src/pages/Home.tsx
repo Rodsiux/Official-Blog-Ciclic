@@ -1,7 +1,5 @@
 import React from "react";
 import { useLocation } from "wouter";
-import { Newsletter } from "@/components/Newsletter";
-import { Header } from "@/components/Header";
 
 const footerSections = [
   {
@@ -74,8 +72,7 @@ export const Home = (): JSX.Element => {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="flex flex-col items-center w-full min-h-screen bg-neutral-00 font-sans">
-      <Header />
+    <div className="flex flex-col items-center w-full min-h-screen bg-neutral-00">
       <section className="w-full cursor-pointer" onClick={() => setLocation("/article/hero")}>
         <img
           className="w-full h-auto"
@@ -95,7 +92,11 @@ export const Home = (): JSX.Element => {
       </section>
 
       <section className="w-full">
-        <Newsletter />
+        <img
+          className="w-full h-auto"
+          alt="Newsletter"
+          src="/figmaAssets/newsletter.svg"
+        />
       </section>
 
       <section className="w-full cursor-pointer" onClick={() => setLocation("/article/podcast")}>
